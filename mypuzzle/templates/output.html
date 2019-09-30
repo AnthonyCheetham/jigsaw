@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.5">
+    <title>MyPuzzle</title>
+
+    <!-- Bootstrap core CSS -->
+<link href="static/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="album.css" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+  <div class="collapse bg-dark" id="navbarHeader">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-md-7 py-4">
+          <h4 class="text-white">About</h4>
+          <p class="text-muted">This project was created by Anthony Cheetham as part of the Insight Data Science Fellowship in September 2019.</p>
+        </div>
+        <div class="col-sm-4 offset-md-1 py-4">
+          <h4 class="text-white">Contact</h4>
+          <ul class="list-unstyled">
+            <!-- <li><a href="#" class="text-white">Follow on Twitter</a></li> -->
+            <li><a href="https://www.linkedin.com/in/anthony-cheetham/" class="text-white">Check out my LinkedIn profile</a></li>
+            <li><a href="https://www.anthonycheetham.com/" class="text-white">View my website</a></li>
+            <li><a href="mailto:cheetham89@outlook.com" class="text-white">Email me</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="navbar navbar-dark bg-dark shadow-sm">
+    <div class="container d-flex justify-content-between">
+      <a href="#" class="navbar-brand d-flex align-items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="mr-2" viewBox="0 0 24 24" focusable="false"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        <strong>MyPuzzle</strong>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main role="main">
+
+  <section class="jumbotron text-center">
+    <div class="container">
+      <h1 class="jumbotron-heading">MyPuzzle</h1>
+      <p class="lead text-muted">I am looking for puzzles with:</p>
+        <form class="form" action="/submit" method=post enctype="multipart/form-data" id="submit-form">
+            <div class="form-group row justify-content-md-center">
+                <div class="col-3">
+                    <label for="selectStyle" class="col-form-label">Art style:</label>
+                </div>
+                <div class="col-3">
+                    <select class="form-control" name="selectStyle" form="submit-form" value>
+                      <option value="any_style" {% if selected_options.any_style %}selected{% endif %}>Any</option>  
+                      <option value="photo" {% if selected_options.photo %}selected{% endif %}>Photographic</option>
+                      <option value="hand" {% if selected_options.hand %}selected{% endif %}> Hand-Drawn</option>
+                      <option value="abstract" {% if selected_options.abstract %}selected{% endif %}>Abstract</option>
+                      <option value="collage" {% if selected_options.collage %}selected{% endif %}>Collage</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group row justify-content-md-center">
+                <div class="col-3">
+                    <label for="selectTheme" class="col-form-label">Theme:</label>
+                </div>
+                <div class="col-3">
+                    <select class="form-control" name="selectTheme" form="submit-form" value>
+                      <option value="any_theme" {% if selected_options.any_theme %}selected{% endif %}>Any</option>
+                      <option value="animals" {% if selected_options.animals %}selected{% endif %}>Animals</option>
+                      <option value="art" {% if selected_options.art %}selected{% endif %}>Art</option>
+                      <option value="fantasy" {% if selected_options.fantasy %}selected{% endif %}>Fantasy</option>
+                      <option value="food" {% if selected_options.food %}selected{% endif %}>Food</option>
+                      <option value="landscape" {% if selected_options.landscape %}selected{% endif %}>Landscape</option>
+                      <option value="licensed" {% if selected_options.licensed %}selected{% endif %}>Licensed</option>
+                      <option value="towns_and_cities" {% if selected_options.towns_and_cities %}selected{% endif %}>Towns and Cities</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group row justify-content-md-center">
+                <div class="col-3">
+                    <label for="selectFeature" class="col-form-label">Sort by:</label>
+                </div>
+                <div class="col-3">
+                    <select class="form-control" name="selectFeature" form="submit-form" value>
+                        <option value="amazon_rating" {% if selected_options.amazon_rating %}selected{% endif %}>Amazon Rating</option>
+                        <option value="image_quality" {% if selected_options.image_quality %}selected{% endif %}>Image Quality</option>
+                        <option value="difficulty" {% if selected_options.difficulty %}selected{% endif %}>Difficulty</option>
+                        <option value="fit_of_pieces" {% if selected_options.fit_of_pieces %}selected{% endif %}>Fit of Pieces</option>
+                        <option value="missing_pieces" {% if selected_options.missing_pieces %}selected{% endif %}>Missing Pieces</option>
+                    </select>
+                </div>
+          </div>
+          <input type="submit" name="submit_form" class="btn btn-primary my-2" id="submit_form"
+                       value="Submit" class="btn btn-primary">
+        </form>
+      </p>
+  </section>
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="row">
+        {% for rec in output_list %}
+            <div class="col-md-4">
+              <div class="card mb-4 shadow-sm">
+                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Test</title>
+                    <image xlink:href={{ rec['img_url'] }} height="100%" width="100%"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">
+                    </text></svg>
+                <div class="card-body">
+                <h5 class="card-title"><a href={{rec['product_url']}}>{{rec['name']}}</a></h5>
+                <h6 class="card-subtitle">${{rec['price']}}</h6>
+                <p class="card-text">Number of Reviews: {{rec['n_reviews']}}</p>
+                <p class="card-text">Amazon Rating: {{rec['star_rating']}}</p>
+                <p class="card-text"><div class="progress"><div class="progress-bar" role="progressbar" style="width: {{(rec['score_quality']*100)|round}}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">Image Quality</div></div></p>
+                <p class="card-text"><div class="progress"><div class="progress-bar" role="progressbar" style="width: {{(rec['score_difficulty']*100)|round}}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">Difficulty as advertised</div></div></p>
+                <p class="card-text"><div class="progress"><div class="progress-bar" role="progressbar" style="width: {{(rec['score_fit']*100)|round}}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">Fit of Pieces</div></div></p>
+                <p class="card-text"><div class="progress"><div class="progress-bar" role="progressbar" style="width: {{(rec['score_missing_pieces']*100)|round}}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">All Pieces in Box</div></div></p>
+                </div>
+              </div>
+            </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="text-muted">
+  <div class="container">
+    <p class="float-right">
+      <a href="#">Back to top</a>
+    </p>
+    <!-- <p>Album example is &copy; Bootstrap, but please download and customize it for yourself!</p> -->
+    <!-- <p>New to Bootstrap? <a href="https://getbootstrap.com/">Visit the homepage</a> or read our <a href="/docs/4.3/getting-started/introduction/">getting started guide</a>.</p> -->
+  </div>
+</footer>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script>window.jQuery || document.write('<script src="/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')</script><script src="static/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script></body>
+</html>
