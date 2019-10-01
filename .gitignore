@@ -1,0 +1,21 @@
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+
+
+# Some things I don't want
+image_classification/_*
+image_classification/models
+image_classification/storage*
+image_classification/valid*
+image_classification/test*
+image_classification/train*
+image_classification/new_ims*
+image_classification/final_sort*
+image_classification/*.png
+image_classification/crap
+1000_piece
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
