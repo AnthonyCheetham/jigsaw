@@ -15,7 +15,8 @@ image_classification/train*
 image_classification/new_ims*
 image_classification/final_sort*
 image_classification/*.png
-image_classification/crap
+image_classification/
 1000_piece
 .ipynb_checkpoints/
 */.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
