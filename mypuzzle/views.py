@@ -1,11 +1,19 @@
 from flask import request,render_template
-from mypuzzle import app
+from mypuzzle import application
 
 import pandas as pd
 import numpy as np
 
-@app.route('/')
-@app.route('/index',methods=['GET','POST'])
+@application.route('/')
+def home():
+    selected_options={}
+    for key in ['animals','art','fantasy','food','landscape','licensed','towns_and_cities']:
+        selected_options[key]=""
+    for key in ['abstract','collage','hand','photo']:
+        selected_options[key]=""
+    return render_template("index.html",selected_options=selected_options)
+
+@application.route('/index',methods=['GET','POST'])
 def index():
     selected_options={}
     for key in ['animals','art','fantasy','food','landscape','licensed','towns_and_cities']:
@@ -14,7 +22,7 @@ def index():
         selected_options[key]=""
     return render_template("index.html",selected_options=selected_options)
 
-@app.route('/submit',methods=['GET','POST'])
+@application.route('/submit',methods=['GET','POST'])
 def submit():
     if request.method == 'POST':
         print(request.form)
