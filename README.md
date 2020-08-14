@@ -1,5 +1,11 @@
 # jigsaw
-Insight Data Science project, improving the search for jigsaw puzzles through puzzle image and amazon review data
+Insight Data Science project, improving the search for jigsaw puzzles through puzzle image and amazon review data.
+This project was completed over 4 weeks in September 2019 as part of the Insight Data Science Fellowship.
+Check out more of my work here:
+https://www.anthonycheetham.com/
+and the completed website here:
+http://www.mypuzzle.xyz/
+
 
 This repo has 3 main parts:
 1. A web app running on ElasticBeanstalk, located in the mypuzzle directory.
@@ -18,3 +24,10 @@ trained on a few hundred hand-labelled images using the Adam optimizer and the n
 ## Review classification
 The sentences are processed using TF-IDF to generate a feature vector, and then a random forest model is used to 
 classify them by topic. The RF model was trained on 500 hand-labelled sentences.
+
+## Possible expansions
+While this project achieved my goal of improving the jigsaw puzzle search experience, there are a lot of ways it 
+could be improved with a greater time investment. There were two I was most interested in.
+- Currently it is not an online learner, and represents the state of the market in September 2019, so updating the 
+data and models automatically would be a valuable addition.
+- Incorporating a search function using item descriptions would be valuable for users.
