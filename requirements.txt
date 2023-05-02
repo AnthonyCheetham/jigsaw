@@ -37,4 +37,4 @@ texttable==0.9.1
 urllib3==1.26.5
 wcwidth==0.1.7
 websocket-client==0.56.0
-Werkzeug==0.16.0
+Werkzeug==2.2.3
